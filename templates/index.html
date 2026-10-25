@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>给香雪姐姐的专属宇宙</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- 动态云朵和花朵层 -->
+    <div id="sky-container"></div>
+
+    <!-- 导航栏（模拟原图右侧悬浮） -->
+    <div class="sidebar">
+        <div class="avatar">🌻</div>
+        <div class="icon">💌</div>
+        <div class="icon">📷</div>
+    </div>
+
+    <!-- 页面 1：主视觉 -->
+    <section class="section hero">
+        <h1>A LITTLE BLUE UNIVERSE<br><span class="highlight">For 郑香雪</span></h1>
+        <p class="subtitle">让回忆，在云端相遇。</p>
+    </section>
+
+    <!-- 页面 2：时光相册 -->
+    <section class="section gallery">
+        <h2>把属于你的光，放进这一页。</h2>
+        <div class="polaroid-wall">
+            {% for item in memories %}
+            <div class="polaroid" onclick="showMemory('{{ item.title }}', '{{ item.desc }}', this)">
+                <img src="{{ url_for('static', filename='images/' + item.img) }}" alt="memory">
+                <p class="polaroid-text">{{ item.title }}<br><span>{{ item.desc }}</span></p>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- 小熊陪伴元素 -->
+        <img src="{{ url_for('static', filename='images/bear.png') }}" class="peeking-bear" alt="bear">
+    </section>
+
+    <!-- 页面 3：温暖信件 -->
+    <section class="section letter-section">
+        <div class="envelope" id="envelope" onclick="openLetter()">
+            <div class="envelope-cover"></div>
+            <div class="letter-content" id="letterContent">
+                <h3>{{ letter.name }}</h3>
+                <p>{{ letter.content }}</p>
+                <p class="sign">—— 来自超级超级喜欢你的康康</p>
+            </div>
+        </div>
+        <p class="tip">👆 轻点信封打开</p>
+    </section>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
