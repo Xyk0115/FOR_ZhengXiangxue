@@ -8,9 +8,9 @@ app = Flask(__name__)
 def index():
     # 回忆相册数据
     memories = [
-        {"id": 1, "img": "photo1.jpg", "title": "把属于你的光", "desc": "留在这一刻"},
-        {"id": 2, "img": "photo2.jpg", "title": "听海", "desc": "也听自己的心"},
-        {"id": 3, "img": "photo3.jpg", "title": "平凡的夜晚", "desc": "也闪闪发光"},
+        {"id": 1, "img": "python1.jpg", "title": "把属于你的光", "desc": "留在这一刻"},
+        {"id": 2, "img": "python2.jpg", "title": "听海", "desc": "也听自己的心"},
+        {"id": 3, "img": "python3.jpg", "title": "平凡的夜晚", "desc": "也闪闪发光"},
     ]
     # 信件内容
     letter = {
